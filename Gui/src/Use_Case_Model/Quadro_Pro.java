@@ -58,21 +58,35 @@ public class Quadro_Pro {
 		btn_quadro_mode.setBounds(571, 342, 174, 39);
 		frame_CockpitPro.getContentPane().add(btn_quadro_mode);
 		
-		JButton btn_quadro_down = new JButton("-");
-		btn_quadro_down.setBounds(520, 342, 41, 39);
-		frame_CockpitPro.getContentPane().add(btn_quadro_down);
 		
-		JButton btn_quadro_up = new JButton("+");
+		final JProgressBar hight_quadro = new JProgressBar();
+		//hight_quadro.setValue(0);
+		hight_quadro.setValue(0);
+		hight_quadro.setMaximum(100);
+		hight_quadro.setBounds(157, 454, 273, 47);
+		frame_CockpitPro.getContentPane().add(hight_quadro);
+		
+		
+		final JButton btn_quadro_up = new JButton("+");
 		btn_quadro_up.addActionListener(new ActionListener() {
-
 			public void actionPerformed(ActionEvent e) {
-//				if(e.getSource() == btn_quadro_up){
-//				JProgressBar hight_quadro = new JProgressBar();
-//				hight_quadro.setValue(/*hight_quadro.getValue() + */50);
-			}
-		});
+				if(e.getSource() == btn_quadro_up){
+					hight_quadro.setValue(hight_quadro.getValue()+1);
+				}
+		}});
 		btn_quadro_up.setBounds(520, 292, 41, 39);
 		frame_CockpitPro.getContentPane().add(btn_quadro_up);
+		
+		final JButton btn_quadro_down = new JButton("-");
+		btn_quadro_down.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == btn_quadro_down){
+					hight_quadro.setValue(hight_quadro.getValue()-1);
+				}
+			}
+		});
+		btn_quadro_down.setBounds(520, 342, 41, 39);
+		frame_CockpitPro.getContentPane().add(btn_quadro_down);
 		
 		JButton btn_quadro_right = new JButton(">");
 		btn_quadro_right.setBounds(857, 342, 41, 39);
@@ -181,11 +195,7 @@ public class Quadro_Pro {
 		label_12V.setBounds(411, 43, 41, 17);
 		frame_CockpitPro.getContentPane().add(label_12V);
 		
-		JProgressBar hight_quadro = new JProgressBar();
-		//hight_quadro.setValue(0);
-		hight_quadro.setBounds(157, 454, 273, 47);
-		frame_CockpitPro.getContentPane().add(hight_quadro);
-		
+	
 		JLabel label_0m = new JLabel("0 m");
 		label_0m.setFont(new Font("Arial", Font.BOLD, 14));
 		label_0m.setBounds(133, 422, 41, 17);
@@ -200,5 +210,9 @@ public class Quadro_Pro {
 		label_100m.setFont(new Font("Arial", Font.BOLD, 14));
 		label_100m.setBounds(411, 422, 41, 17);
 		frame_CockpitPro.getContentPane().add(label_100m);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(545, 314, 1, 2);
+		frame_CockpitPro.getContentPane().add(separator);
 	}
 }
